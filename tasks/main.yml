@@ -41,4 +41,3 @@
         or ansible_distribution == 'Archlinux'
         or ansible_distribution == 'Alpine'
   tags: msmtp
-

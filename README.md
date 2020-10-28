@@ -146,7 +146,7 @@ at any time, so this is not guaranteed to work indefinitely.
 - hosts: localhost
   remote_user: root
   roles:
-    - msmtp
+    - fauch922.ansible_msmtp_setup
   vars:
     msmtp_global_tls_trustfile:
     msmtp_global_auth: "on"

@@ -1,0 +1,5 @@
+---
+# vars file for ssmtp (Alpine specific)
+
+msmtp_packages:
+  - msmtp

@@ -1,0 +1,22 @@
+# /etc/msmtprc globals
+msmtp_global_tls_trustfile:
+msmtp_global_auth: "on"
+msmtp_global_tls: "on"
+msmtp_global_starttls: "on"
+msmtp_global_logfile: ~/.msmtp.log
+msmtp_global_log: syslog
+msmtp_domain: localhost
+msmtp_default_account: exampleaccount
+
+# /etc/msmtpr caccount settings
+msmtp_account.account: exampleaccount
+msmtp_account.host: smtp.example@domain.com
+msmtp_account.port: 587
+msmtp_account.auth: "on"
+msmtp_account.from: example@domain.com
+msmtp_account.user: exampleuser
+msmtp_account.password: examplepass
+
+# /etc/aliases
+msmtp_alias_default: exampleaccount
+msmtp_aliases: /etc/aliases

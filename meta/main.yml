@@ -1,0 +1,36 @@
+galaxy_info:
+  author: Martin Schmid
+  description: installs and configures msmtp
+  company: Akaritech
+
+  license: BSD
+
+  min_ansible_version: 2.9
+
+  platforms:
+    - name: CentOS
+      versions:
+        - all
+    - name: RedHat
+      versions:
+        - all
+    - name: Ubuntu
+      versions:
+        - all
+    - name: Debian
+      versions:
+        - all
+    - name: Archlinux
+      versions:
+        - all
+    - name: Alpine
+      versions:
+        - all
+
+  galaxy_tags:
+    - msmtp
+    - system
+
+dependencies: []
+
+  

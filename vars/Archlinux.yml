@@ -1,0 +1,6 @@
+---
+# vars file for ssmtp (Archlinux specific)
+
+msmtp_packages:
+  - msmtp
+  - msmtp-mta

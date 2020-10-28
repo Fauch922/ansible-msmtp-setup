@@ -1,0 +1,45 @@
+- name: Include distribution specific variables
+  include_vars: "{{ ansible_os_family }}.yml"
+  tags: mstmp
+
+- include_tasks: "setup-{{ ansible_os_family }}.yml"
+
+- name: Create mSMTP config file
+  template: >
+    src=msmtprc.j2
+    dest=/etc/msmtprc
+    owner=root
+    group=root
+    mode=0600
+  tags: msmtp
+
+- name: Create /etc/aliases
+  template: >
+    src=aliases.j2
+    dest=/etc/aliases
+    group=root
+    owner=root
+    mode=0644
+  tags: msmtp
+
+
+- name: Set ca-certificates for CentOS hosts
+  lineinfile:
+    path: /etc/msmtprc
+    regex: "^tls_trust_file"
+    line: "tls_trust_file /etc/pki/tls/certs/ca-bundle.crt"
+  when: ansible_distribution == 'CentOS'
+        or ansible_distribution == 'Red Hat Enterprise Linux'
+  tags: msmtp
+
+- name: Set ca-certificates for Debian/Ubuntu/Archlinux/Alpine hosts
+  lineinfile:
+    path: /etc/msmtprc
+    regex: "^tls_trust_file"
+    line: "tls_trust_file /etc/ssl/certs/ca-certificates.crt"
+  when: ansible_distribution == 'Debian'
+        or ansible_distribution == 'Ubuntu'
+        or ansible_distribution == 'Archlinux'
+        or ansible_distribution == 'Alpine'
+  tags: msmtp
+

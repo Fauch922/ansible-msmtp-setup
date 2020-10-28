@@ -1,0 +1,6 @@
+---
+# vars file for ssmtp (Debian family specific)
+
+msmtp_packages:
+  - msmtp
+  - msmtp-mta

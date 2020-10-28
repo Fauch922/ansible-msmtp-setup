@@ -1,0 +1,41 @@
+msmtp-tests-centos:
+  image: centos:latest
+  script:
+    - dnf install -y epel-release
+    - dnf install -y ansible
+    - pip3 install pytest
+    - cp -r $(pwd) /etc/ansible/roles/msmtp
+    - ansible-playbook tests/test.yml
+    - pytest
+
+msmtp-tests-ubuntu:
+  image: ubuntu:latest
+  script:
+    - apt-get update && apt-get -y dist-upgrade
+    - apt-get install -y ansible python3 python3-pip
+    - pip3 install pytest
+    - mkdir -p /etc/ansible/roles
+    - cp -r $(pwd) /etc/ansible/roles/msmtp
+    - ansible-playbook tests/test.yml
+    - pytest
+
+msmtp-tests-arch:
+  image: archlinux:latest
+  script:
+    - pacman -Sy
+    - pacman --noconfirm -Sy ansible python3 python-pip
+    - pip3 install pytest
+    - mkdir -p /etc/ansible/roles
+    - cp -r $(pwd) /etc/ansible/roles/msmtp
+    - ansible-playbook tests/test.yml
+    - pytest
+
+msmtp-tests-alpine:
+  image: alpine:latest
+  script:
+    - apk update && apk upgrade
+    - apk add ansible pytest
+    - mkdir -p /etc/ansible/roles
+    - cp -r $(pwd) /etc/ansible/roles/msmtp
+    - ansible-playbook tests/test.yml
+    - pytest

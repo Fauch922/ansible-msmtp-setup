@@ -1,0 +1,35 @@
+---
+- hosts: localhost
+  remote_user: root
+  roles:
+    - msmtp
+  vars:
+    msmtp_global_tls_trustfile:
+    msmtp_global_auth: "on"
+    msmtp_global_tls: "on"
+    msmtp_global_starttls: "on"
+    msmtp_global_log: syslog
+    msmtp_domain: localhost
+    msmtp_default_account: gmail
+    accounts:
+      - account: gmail
+        host: smtp.gmail.com
+        port: 587
+        auth: "on"
+        from: example@gmail.com
+        user: example@gmail.com
+        password: "app-password"
+      - account: icloud
+        host: smtp.mail.me.com
+        port: 587
+        auth: "on"
+        from: example@icloud.com
+        user: example@icloud.com
+        password: "icloud-password"
+    aliases:
+      - user: root
+        mail: root@gmail.com
+      - user: cron
+        mail: cron@gmail.com
+      - user: www-data
+        mail: apache@gmail.com

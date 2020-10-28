@@ -1,0 +1,6 @@
+---
+# vars file for ssmtp (Red Hat family specific)
+
+msmtp_packages:
+  - msmtp
+  - ca-certificates

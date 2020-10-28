@@ -1,0 +1,6 @@
+---
+# tasks file for ssmtp (Alpine specific)
+
+- name: Install mSMTP packages
+  apk: name={{ msmtp_packages }} state=present update_cache=yes
+  tags: msmtp

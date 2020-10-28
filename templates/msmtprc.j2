@@ -1,0 +1,40 @@
+# {{ ansible_managed }}
+
+defaults
+
+auth {{ msmtp_global_auth }}
+tls {{ msmtp_global_tls }}
+tls_trust_file {{ msmtp_global_tls_trustfile }}
+tls_starttls {{ msmtp_global_starttls }}
+
+# Logging
+{% if msmtp_global_log is defined %}
+{% if msmtp_global_log == "syslog" %}
+syslog on
+{% elif msmtp_global_log == "file" and msmtp_global_logfile is defined %}
+logfile  {{msmtp_global_logfile}}
+{% endif %}
+{% endif %}
+
+# Envelope Settings
+domain {{msmtp_domain}}
+auto_from off
+
+# Accounts
+
+{% if accounts is defined %}
+{% for msmtp_account in accounts %}
+account  {{msmtp_account.account}}
+host     {{msmtp_account.host}}
+port     {{msmtp_account.port}}
+auth     {{msmtp_account.auth}}
+from     {{msmtp_account.from}}
+user     {{msmtp_account.user}}
+password {{msmtp_account.password}}
+{% endfor %}
+{% endif %}
+
+# account default and alias
+
+account default: {{ msmtp_default_account }}
+aliases {{ msmtp_aliases }}

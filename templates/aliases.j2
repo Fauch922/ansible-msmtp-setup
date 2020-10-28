@@ -1,0 +1,11 @@
+# {{ ansible_managed }}
+
+# mapping of linux users to mail addresses
+
+{% if aliases is defined %}
+{% for alias in aliases %}
+{{ alias.user }}:      {{alias.mail}}
+{% endfor %}
+{% endif %}
+
+default: {{ msmtp_alias_default }}

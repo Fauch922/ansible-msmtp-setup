@@ -1,0 +1,6 @@
+---
+# tasks file for ssmtp (RedHat family specific)
+
+- name: Install mSMTP packages
+  yum: name={{ msmtp_packages }} state=present update_cache=yes
+  tags: msmtp

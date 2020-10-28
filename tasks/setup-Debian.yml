@@ -1,0 +1,6 @@
+---
+# tasks file for ssmtp (Debian family specific)
+
+- name: Install mSMTP packages
+  apt: name={{ msmtp_packages }} state=present update_cache=yes
+  tags: msmtp

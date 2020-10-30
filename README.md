@@ -26,15 +26,11 @@ Role Variables
 </tr>
 <tr valign="top">
 <td>msmtp_global_tls</td>
-<td align="left">enable tls for all accounts/td>
+<td align="left">enable tls for all accounts</td>
 </tr>
 <tr valign="top">
 <td>msmtp_global_starttls</td>
 <td align="left">enable startls for all accounts</td>
-</tr>
-<tr valign="top">
-<td>msmtp_global_log</td>
-<td align="left">This can be either set to syslog (default) or to file</td>
 </tr>
 <tr valign="top">
 <td>msmtp_global_log</td>

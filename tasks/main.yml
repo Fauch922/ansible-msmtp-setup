@@ -21,6 +21,16 @@
     owner=root
     mode=0644
   tags: msmtp
+  
+- name: Create /etc/mail.rc
+  ansible.builtin.lineinfile:
+    path: /etc/mail.rc
+    line: set sendmail="/usr/bin/msmtp -t"
+    create: yes    
+    group: root
+    owner: root
+    mode: 0644
+  tags: msmtp
 
 - name: Set ca-certificates for CentOS hosts
   lineinfile:

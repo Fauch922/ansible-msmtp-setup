@@ -9,8 +9,8 @@
     src=msmtprc.j2
     dest=/etc/msmtprc
     owner=root
-    group=root
-    mode=0600
+    group=msmtp
+    mode=0640
   tags: msmtp
 
 - name: Create /etc/aliases

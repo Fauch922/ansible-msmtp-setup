@@ -1,6 +1,6 @@
 galaxy_info:
   author: Martin Schmid
-  description: installs and configures msmtp
+  description: installs and configures msmtp on Debian, Centos, Alpine and Arch Linux
   company: Akaritech
 
   license: BSD

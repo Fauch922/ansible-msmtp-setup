@@ -4,6 +4,13 @@
 
 - include_tasks: "setup-{{ ansible_os_family }}.yml"
 
+- name: Create msmtp group
+  group:
+    name: msmtp
+    state: present
+    system: yes
+  tags: msmtp
+
 - name: Create mSMTP config file
   template: >
     src=msmtprc.j2

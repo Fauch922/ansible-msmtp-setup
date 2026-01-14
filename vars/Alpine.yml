@@ -3,3 +3,4 @@
 
 msmtp_packages:
   - msmtp
+  - mailx

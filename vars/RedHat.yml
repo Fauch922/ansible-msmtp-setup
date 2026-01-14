@@ -4,3 +4,4 @@
 msmtp_packages:
   - msmtp
   - ca-certificates
+  - mailx
